@@ -54,7 +54,7 @@ export function handleTransfer(event: Transfer): void {
   transferCounter.id = day.toString()
   transferCounter.save()
 
-  let recipient = `eip155:5:${event.params.to.toHexString()}`,
+  let recipient = event.params.to.toHexString(),
   type = "3",
   title = "PUSH Received",
   body = `Received ${event.params.tokens.div(power)} PUSH from ${event.params.from.toHexString()}`,
