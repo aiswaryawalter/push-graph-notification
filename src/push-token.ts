@@ -1,7 +1,7 @@
 import { BigInt } from "@graphprotocol/graph-ts"
 import { PushToken, Transfer, Approval } from "../generated/PushToken/PushToken"
 import { User, UserCounter, TransferCounter } from "../generated/schema"
-import { sendEPNSNotification } from "./EPNSNotification"
+import { sendPushNotification } from "./PushNotification"
 export const subgraphID = "aiswaryawalter/push-protocol-goerli"
 
 let ZERO_BI = BigInt.fromI32(0)
@@ -66,7 +66,7 @@ export function handleTransfer(event: Transfer): void {
 
   notification = `{\"type\": \"${type}\", \"title\": \"${title}\", \"body\": \"${body}\", \"subject\": \"${subject}\", \"message\": \"${message}\", \"image\": \"${image}\", \"secret\": \"${secret}\", \"cta\": \"${cta}\"}`
  
-  sendEPNSNotification(
+  sendPushNotification(
   recipient, 
   notification
   )

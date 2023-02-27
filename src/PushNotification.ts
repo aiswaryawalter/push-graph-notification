@@ -4,7 +4,7 @@ import {
 import { EpnsNotificationCounter, EpnsPushNotification } from '../generated/schema'
 import { subgraphID } from "./push-token"
 
-export function sendEPNSNotification(recipient: string, notification: string): void 
+export function sendPushNotification(recipient: string, notification: string): void 
 {
   let id1 = subgraphID
   log.info('New id of EpnsNotificationCounter is: {}', [id1])
